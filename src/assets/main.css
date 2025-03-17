@@ -1,0 +1,28 @@
+@import './base.css';
+
+:root {
+  --orange: #eb8104;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-size: 14px;
+  font-family: system-ui, sans-serif;
+}
+
+main {
+  margin-top: 150px;
+  min-height: 100vh;
+}
+
+.container {
+  width: 1000px;
+  margin: 0 auto;
+}
+
+img {
+  display: block;
+}
