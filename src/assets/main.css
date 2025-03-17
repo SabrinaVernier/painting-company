@@ -2,6 +2,19 @@
 
 :root {
   --orange: #eb8104;
+  --blue: #268fb1;
+  --green-blue: rgb(183, 234, 232);
+  --grey: rgb(183, 182, 182);
+
+  /* ---color-chart--- */
+  --red-chart: #f73f52;
+  --orange-chart: #ff9000;
+  --yellow-chart: #fbd400;
+  --green-chart: #9ed763;
+  --blue-chart: #6730ec;
+  --purple-chart: #815a8f;
+  --white-chart: #ffffff;
+  --rebeccapurple-chart: #663399;
 }
 
 * {
