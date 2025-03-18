@@ -14,13 +14,13 @@ import ButtonQuotation from '../components/ButtonQuot.vue'
         <h3>(Travaux de peinture et vitrerie)</h3>
       </div>
 
-      <section class="presentation">
+      <section class="presentation" id="home">
         <div>
           <p>
             Bienvenue sur notre nouveau site internet ! Peinture en intérieur, peinture en
             extérieur, ravalement de façade, travaux de revêtement mural ou de sols ? Ne cherchez
             plus, c’est
-            <span>Gau Peinture</span>. Artisan peintre depuis plus de 15 ans, Fabrice et Fanny GAU
+            <span>Gau Peinture</span>. Artisan peintre depuis plus de 15 ans, Fabrice & Fanny GAU
             sont à votre service pour vos futurs travaux de peinture en Occitanie et plus
             particulièrement dans l'Héraut(34) et l'Aude(11).
 
@@ -121,7 +121,50 @@ import ButtonQuotation from '../components/ButtonQuot.vue'
         </div>
       </section>
 
-      <section id="contact"></section>
+      <section class="model">
+        <h2>Quelques modèles</h2>
+
+        <div>
+          <ul>
+            <li>
+              <h4>Peinture Essuyée</h4>
+              <img src="../assets/Imgs/P-peinture-essuyée.jpg" alt="" />
+              <p></p>
+            </li>
+            <li>
+              <h4>Badigeon à la chaux</h4>
+              <img src="../assets/Imgs/P-badigeon-chaux.jpg" alt="" />
+              <p></p>
+            </li>
+            <li>
+              <h4>Crépissage intérieur et extérieur</h4>
+              <img src="../assets/Imgs/P-crepissage-int.jpeg" alt="" />
+              <img src="../assets/Imgs/P-crepissage-ext.webp" alt="" />
+              <p></p>
+            </li>
+            <li>
+              <h4>Enduit projeté</h4>
+              <img src="../assets/Imgs/P-enduit-projeté.jpeg" alt="" />
+              <p></p>
+            </li>
+            <li>
+              <h4>Peinture à effet</h4>
+              <img src="../assets/Imgs/P-peinture-effet-beton.webp" alt="" />
+              <img src="../assets/Imgs/P-peinture-effet-rouille.jpeg" alt="" />
+              <img src="../assets/Imgs/P-peinture-effet-sablé.jpg" alt="" />
+              <img src="../assets/Imgs/P-peinture-effet-tadelakt.webp" alt="" />
+              <img src="../assets/Imgs/P-peinture-effet-velour.jpeg" alt="" />
+              <p></p>
+            </li>
+            <li>
+              <h4>Peinture Electrostatique</h4>
+              <img src="../assets/Imgs/P-peinture-electrostatique.jpeg" alt="" />
+              <img src="../assets/Imgs/P-peinture-electrostatique2.jpg" alt="" />
+              <p></p>
+            </li>
+          </ul>
+        </div>
+      </section>
     </div>
   </main>
 </template>
@@ -129,36 +172,7 @@ import ButtonQuotation from '../components/ButtonQuot.vue'
 /* main {
   background-color: var(--green-blue);
 } */
-h1 {
-  font-family: 'Rock Salt', serif;
-  font-size: 34px;
-  line-height: 22px;
-  padding-top: 100px;
-  padding-bottom: 20px;
-  text-align: center;
-}
 
-h2 {
-  /* font-family: 'Lucida Sans', 'Lucida Sans Regular', sans-serif; */
-  font-size: 28px;
-  line-height: 34px;
-  letter-spacing: 1px;
-  padding: 20px;
-  margin-bottom: 30px;
-  text-align: center;
-  font-weight: bold;
-}
-
-h3 {
-  text-align: center;
-  color: var(--grey);
-  padding-bottom: 50px;
-}
-h4 {
-  font-size: 18px;
-  font-family: 'Rock Salt', serif;
-  margin-bottom: 20px;
-}
 .white {
   color: white;
 }
@@ -319,5 +333,10 @@ span {
   margin: 20px 0;
   color: gray;
   line-height: 16px;
+}
+
+/* ---model--- */
+.model img {
+  height: 200px;
 }
 </style>
