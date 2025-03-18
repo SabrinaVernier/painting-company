@@ -2,7 +2,7 @@
 import { RouterLink } from 'vue-router'
 
 import Logo from './LogoCompany.vue'
-import ButtonQuotation from './buttonQuotation.vue'
+import ButtonQuotation from './ButtonQuot.vue'
 </script>
 
 <template>

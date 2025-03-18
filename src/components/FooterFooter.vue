@@ -3,9 +3,11 @@
 <template>
   <footer>
     <div class="container">
-      Réalisé par
-      <a href="https://github.com/SabrinaVernier" target="_blank"> Sabrina Vernier </a> avec
-      <a href="https://vuejs.org/" target="_blank"> Vuejs </a>
+      <p>
+        Réalisé par
+        <a href="https://github.com/SabrinaVernier" target="_blank"> Sabrina Vernier </a> avec
+        <a href="https://vuejs.org/" target="_blank"> Vuejs.</a>
+      </p>
     </div>
   </footer>
 </template>

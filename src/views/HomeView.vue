@@ -3,7 +3,7 @@
 
 import { servicesArray, stepsProject } from '@/assets/Utils/Array'
 import ColorChart from '@/components/ColorChart.vue'
-import ButtonQuotation from '../components/buttonQuotation.vue'
+import ButtonQuotation from '../components/ButtonQuot.vue'
 </script>
 
 <template>
