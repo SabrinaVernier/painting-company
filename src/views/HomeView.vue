@@ -286,7 +286,7 @@ const displayBloc = (num) => {
               <div v-if="displayImage7">
                 <div class="caroussel">
                   <img src="../assets/Imgs/P-Peinture-sol-béton.jpg" alt="s-beton" />
-                  <img src="../assets/Imgs/P-peinture-sol-résine.jpeg" alt="s-resine" />
+                  <img src="../assets/Imgs/P-Peinture-sol-résine.jpeg" alt="s-resine" />
                 </div>
                 <p>
                   Généralement composée de résine époxy, de solvant et de durcisseur, de pigments et
