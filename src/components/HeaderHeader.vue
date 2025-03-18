@@ -11,8 +11,7 @@ import ButtonQuotation from './ButtonQuot.vue'
       <Logo />
 
       <nav>
-        <!-- <RouterLink :to="{ name: 'quotation' }">Demande de devis gratuit</RouterLink> -->
-        <ButtonQuotation />
+        <div class="a"><ButtonQuotation /></div>
 
         <a href="#contact">Contact</a>
 
@@ -48,7 +47,6 @@ a {
 }
 
 nav {
-  /* border: 1px solid red; */
   width: 50%;
   display: flex;
   align-items: center;

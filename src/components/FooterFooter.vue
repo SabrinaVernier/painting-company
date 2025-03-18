@@ -12,7 +12,7 @@ import ButtonQuotation from './ButtonQuot.vue'
           <p>06-83-31-45-12</p>
         </div>
 
-        <div class="button"><ButtonQuotation /></div>
+        <div class="button a"><ButtonQuotation /></div>
 
         <div>
           <h5>GAU Peinture</h5>

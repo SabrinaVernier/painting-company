@@ -6,6 +6,7 @@
   --green-blue: rgb(183, 234, 232);
   --grey: rgb(183, 182, 182);
   --dark-grey: rgb(110, 109, 109);
+  --very-dark-grey: rgb(83, 82, 82);
 
   /* ---color-chart--- */
   --red-chart: #f73f52;
@@ -16,6 +17,11 @@
   --purple-chart: #815a8f;
   --white-chart: #ffffff;
   --rebeccapurple-chart: #663399;
+
+  /* ---loader--- */
+  --main-color: white;
+  /* --point-color: #555; */
+  --size: 5px;
 }
 
 * {
@@ -55,6 +61,7 @@ h2 {
   margin-bottom: 30px;
   text-align: center;
   font-weight: bold;
+  color: var(--very-dark-grey);
 }
 
 h3 {
@@ -66,6 +73,7 @@ h4 {
   font-size: 18px;
   font-family: 'Rock Salt', serif;
   margin-bottom: 20px;
+  color: var(--very-dark-grey);
 }
 
 h5 {
@@ -75,4 +83,14 @@ h5 {
 }
 img {
   display: block;
+}
+
+a {
+  cursor: pointer;
+}
+
+a:hover,
+.a:hover {
+  scale: 120%;
+  text-decoration: none;
 }
