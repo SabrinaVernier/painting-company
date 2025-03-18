@@ -2,6 +2,7 @@
 import { RouterLink } from 'vue-router'
 
 import Logo from './LogoCompany.vue'
+import ButtonQuotation from './buttonQuotation.vue'
 </script>
 
 <template>
@@ -10,7 +11,8 @@ import Logo from './LogoCompany.vue'
       <Logo />
 
       <nav>
-        <RouterLink :to="{ name: 'quotation' }">Demande de devis gratuit</RouterLink>
+        <!-- <RouterLink :to="{ name: 'quotation' }">Demande de devis gratuit</RouterLink> -->
+        <ButtonQuotation />
 
         <a href="#contact">Contact</a>
 
@@ -36,7 +38,6 @@ a {
   color: white;
   font-size: 16px;
   border: 2px solid var(--blue);
-
   border-radius: 30px;
   padding: 8px 15px;
 }

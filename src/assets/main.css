@@ -5,6 +5,7 @@
   --blue: #268fb1;
   --green-blue: rgb(183, 234, 232);
   --grey: rgb(183, 182, 182);
+  --dark-grey: rgb(110, 109, 109);
 
   /* ---color-chart--- */
   --red-chart: #f73f52;
@@ -23,7 +24,7 @@
 
 body {
   font-size: 14px;
-  font-family: system-ui, sans-serif;
+  font-family: 'Roboto', sans-serif;
 }
 
 main {

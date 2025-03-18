@@ -3,6 +3,7 @@ import { RouterLink } from 'vue-router'
 
 import { servicesArray, stepsProject } from '@/assets/Utils/Array'
 import ColorChart from '@/components/ColorChart.vue'
+import ButtonQuotation from '../components/buttonQuotation.vue'
 </script>
 
 <template>
@@ -13,23 +14,55 @@ import ColorChart from '@/components/ColorChart.vue'
         <h3>(Travaux de peinture et vitrerie)</h3>
       </div>
 
-      <div class="presentation">
-        <p>
-          Bienvenue sur notre nouveau site internet ! Peinture en intérieur, peinture en extérieur,
-          ravalement de façade, travaux de revêtement mural ou de sols ? Ne cherchez plus, c’est
-          <span>Gau Peinture</span>. Artisan peintre depuis plus de 15 ans, Fabrice et Fanny GAU
-          sont à votre service pour vos futurs travaux de peinture en Occitanie et plus
-          particulièrement dans l'Héraut(34) et l'Aude(11).
+      <section class="presentation">
+        <div>
+          <p>
+            Bienvenue sur notre nouveau site internet ! Peinture en intérieur, peinture en
+            extérieur, ravalement de façade, travaux de revêtement mural ou de sols ? Ne cherchez
+            plus, c’est
+            <span>Gau Peinture</span>. Artisan peintre depuis plus de 15 ans, Fabrice et Fanny GAU
+            sont à votre service pour vos futurs travaux de peinture en Occitanie et plus
+            particulièrement dans l'Héraut(34) et l'Aude(11).
 
-          <span>Gau Peinture</span> intervient chez les particuliers, les professionnels (commerces,
-          bureaux, …) et auprès des collectivités (école, crèche, salle municipale…). N’hésitez pas
-          à nous <a href="#contact">contacter</a> <br />
-          À bientôt sur votre chantier !
-        </p>
-      </div>
+            <span>Gau Peinture</span> intervient chez les particuliers, les professionnels
+            (commerces, bureaux, …) et auprès des collectivités (école, crèche, salle municipale…).
+            N’hésitez pas à nous <a href="#contact">contacter</a> <br />
+            À bientôt sur votre chantier !
+          </p>
+        </div>
+      </section>
 
-      <div class="div-section">
-        <section class="description">
+      <section class="imgs">
+        <h2>Travaux de peinture extérieure</h2>
+        <div>
+          <img src="../assets/Imgs/FB_IMG_1742288937801.jpg" alt="maison chantier finie" />
+          <div>
+            <div class="text">
+              <h2>Ravalement de façade avec <span>GAU Peinture</span></h2>
+              <p>
+                <span>Gau Peinture</span> redonne vie à vos extérieurs en utilisant des peintures de
+                qualité supérieure alliées à des techniques de ravalement modernes : durabilité et
+                esthétique, la garantie <span>GAU Peinture</span>. Qu’il s’agisse d’un ravalement de
+                façade (nettoyage, réfection, réparation éventuelle, rénovation des murs de façade)
+                ou de travaux de peinture extérieure pour un embellissement,
+                <span>GAU Peinture</span> assure un travail de qualité et dans le respect des
+                délais. Il saura vous conseiller sur le type de revêtement et sur la couleur
+                définitive.
+              </p>
+
+              <div class="button"><ButtonQuotation /></div>
+            </div>
+            <img
+              class="unfinished-house"
+              src="../assets/Imgs/FB_IMG_1742288932572.jpg"
+              alt="maison chantier échaffaudage"
+            />
+          </div>
+        </div>
+      </section>
+
+      <section class="div-section">
+        <div class="description">
           <h2 class="white">Vos travaux requièrent les services d'un peintre décorateur ?</h2>
 
           <div class="text">
@@ -42,11 +75,13 @@ import ColorChart from '@/components/ColorChart.vue'
 
             <div><font-awesome-icon :icon="['fas', 'angle-double-down']" /></div>
 
-            <RouterLink :to="{ name: 'quotation' }"> Demandez votre devis ici</RouterLink>
-          </div>
-        </section>
+            <!-- <RouterLink :to="{ name: 'quotation' }"> Demandez votre devis ici</RouterLink> -->
 
-        <section class="services-list">
+            <ButtonQuotation />
+          </div>
+        </div>
+
+        <div class="services-list">
           <h2 class="strong">Prestations proposés par l'Entreprise :</h2>
 
           <div class="div-list">
@@ -54,8 +89,8 @@ import ColorChart from '@/components/ColorChart.vue'
               <font-awesome-icon :icon="['fas', 'paint-roller']" /> {{ service }}
             </p>
           </div>
-        </section>
-      </div>
+        </div>
+      </section>
 
       <section class="div-color">
         <div>
@@ -70,7 +105,9 @@ import ColorChart from '@/components/ColorChart.vue'
               votre projet
             </h4>
             <p>N'attendez-pas !</p>
-            <RouterLink :to="{ name: 'quotation' }"> Demandez votre devis maintenant</RouterLink>
+            <!-- <RouterLink :to="{ name: 'quotation' }"> Demandez votre devis maintenant</RouterLink> -->
+
+            <ButtonQuotation />
           </div>
         </div>
 
@@ -94,7 +131,7 @@ import ColorChart from '@/components/ColorChart.vue'
 } */
 h1 {
   font-family: 'Rock Salt', serif;
-  font-size: 30px;
+  font-size: 34px;
   line-height: 22px;
   padding-top: 100px;
   padding-bottom: 20px;
@@ -103,10 +140,11 @@ h1 {
 
 h2 {
   /* font-family: 'Lucida Sans', 'Lucida Sans Regular', sans-serif; */
-  font-size: 20px;
-  line-height: 20px;
+  font-size: 28px;
+  line-height: 34px;
   letter-spacing: 1px;
   padding: 20px;
+  margin-bottom: 30px;
   text-align: center;
   font-weight: bold;
 }
@@ -127,8 +165,9 @@ h4 {
 
 section {
   /* border: 1px solid red; */
+  border-bottom: 4px double var(--grey);
   margin-top: 30px;
-  padding: 10px;
+  padding: 50px 10px;
   background-color: #fff;
 }
 /* ---presentation--- */
@@ -144,6 +183,40 @@ span {
 
 .presentation a {
   color: var(--blue);
+}
+
+/* ---imgs--- */
+.imgs > div {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: end;
+}
+
+.imgs > div > div {
+  display: flex;
+}
+
+.imgs img {
+  object-fit: cover;
+  border-radius: 20px;
+  box-shadow: 2px 2px 7px var(--dark-grey);
+}
+.imgs .text {
+  padding: 20px;
+}
+.imgs .text > p {
+  margin: 0 20px;
+  line-height: 25px;
+  text-align: justify;
+}
+.unfinished-house {
+  width: 50%;
+}
+
+.imgs .button {
+  margin-top: 100px;
+  text-align: center;
 }
 /* ---description--- */
 .div-section {
@@ -180,7 +253,7 @@ span {
   color: var(--grey);
 }
 
-.description a,
+/* .description a,
 .div-color a {
   text-decoration: none;
   text-shadow: 0 0 5px black;
@@ -189,7 +262,7 @@ span {
   background-color: var(--green-blue);
   border-radius: 30px;
   padding: 8px 15px;
-}
+} */
 .description a:hover {
   scale: 120%;
   text-decoration: none;
