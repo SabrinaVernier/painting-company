@@ -1,11 +1,14 @@
+<!-- eslint-disable no-undef -->
 <script setup>
-// import { RouterLink } from 'vue-router'
 import { ref } from 'vue'
 
 import { servicesArray, stepsProject } from '@/assets/Utils/Array'
+
 import ColorChart from '@/components/ColorChart.vue'
 import ButtonQuotation from '../components/ButtonQuot.vue'
 import ThreePoint from '@/components/ThreePoint.vue'
+
+$cookies.remove('adminInfo')
 
 const displayImage1 = ref(false)
 const displayImage2 = ref(false)

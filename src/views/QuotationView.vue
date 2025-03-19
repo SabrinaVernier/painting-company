@@ -3,6 +3,8 @@
 import { RouterLink } from 'vue-router'
 import { ref } from 'vue'
 
+$cookies.remove('adminInfo')
+
 const name = ref('')
 const email = ref('')
 const phone = ref('')
@@ -20,11 +22,14 @@ const handleSubmit = () => {
     return
   } else {
     quotationInfos.value.push({
+      // id: quotationInfos.value.length + 1,
       name: name.value,
       email: email.value,
       phone: phone.value,
       message: message.value,
     })
+
+    // console.log('id>>>>', quotationInfos.value.length + 1)
 
     // suppression du cookie (sa valeur est enregistrée dans quotationInfos.value)
     $cookies.remove('messagesList')
