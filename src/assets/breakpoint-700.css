@@ -1,0 +1,107 @@
+/* ---max-width: 700px--- */
+
+body {
+  background-color: yellow;
+}
+
+/* ---HEADER---------- */
+
+#header .display {
+  justify-content: space-between;
+}
+
+#header nav {
+  flex-direction: column-reverse;
+  gap: 10px;
+  align-items: flex-end;
+  justify-content: space-evenly;
+}
+/* ---FOOTER---------- */
+/* ---HOMEVIEW--------- */
+
+/* section-present-- */
+#homeview .presentation {
+  flex-direction: column;
+  gap: 20px;
+  padding: 10px;
+}
+
+#homeview .presentation .div-img {
+  flex-direction: unset;
+  align-items: center;
+  gap: 10px;
+  margin: 0 20px;
+}
+
+/* section-imgs-- */
+#homeview .imgs > div > div {
+  flex-direction: column-reverse;
+  gap: 20px;
+  /* padding: 10px; */
+}
+
+#homeview .imgs .unfinished-house {
+  width: 100%;
+  height: 350px;
+  object-position: top;
+}
+
+/* section-div-sect-- */
+/* description */
+#homeview .div-section {
+  flex-direction: column;
+  gap: 20px;
+}
+
+#homeview .div-section .description {
+  background-image: none;
+  background-color: var(--blue);
+  height: 500px;
+}
+
+#homeview .div-section .description .text {
+  max-width: 100vw;
+  max-height: fit-content;
+  color: white;
+  position: unset;
+}
+
+#homeview .description svg {
+  margin: 20px 0;
+}
+
+/* sevices-list */
+#homeview .div-list {
+  height: 400px;
+  flex-wrap: wrap;
+}
+
+/* section-div-col-- */
+#homeview .div-color {
+  flex-direction: column;
+}
+
+#homeview .div-color > div {
+  flex: none;
+}
+
+#homeview .div-color .text {
+  margin-top: 200px;
+}
+#homeview .div-steps {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+#homeview .div-steps .step {
+  width: calc((100% - 20px) / 2);
+  height: 300px;
+}
+#homeview .div-steps .step:last-of-type {
+  width: 100%;
+  height: fit-content;
+}
+/* section-model-- */
+
+/* ---QUOTATIONVIEW---- */
+/* nothing */

@@ -1,0 +1,84 @@
+/* ---max-width: 800px--- */
+
+body {
+  background-color: lightsalmon;
+}
+
+/* ---HEADER---------- */
+#header a {
+  font-size: 14px;
+  padding: 5px 10px;
+}
+/* ---FOOTER---------- */
+#footer .container > section:first-child {
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: flex-start;
+}
+
+#footer .container > section:last-child {
+  font-size: 12px;
+}
+
+#footer .container > section:last-child a {
+  font-size: 14px;
+}
+
+#footer .button {
+  align-self: flex-end;
+}
+/* ---HOMEVIEW--------- */
+
+/* section-present-- */
+
+#homeview .presentation {
+  align-items: flex-start;
+}
+#homeview .presentation img {
+  height: 100px;
+  width: 100px;
+}
+
+/* section-imgs-- */
+
+#homeview .imgs .first-img {
+  width: 100%;
+}
+
+/* section-div-sect-- */
+
+#homeview .description .text {
+  font-size: 14px;
+  padding-right: 30px;
+  text-align: justify;
+}
+
+/* section-div-col-- */
+#homeview .div-color .text {
+  padding: 60px 40px;
+}
+
+/* section-model-- */
+#homeview .model p {
+  font-size: 12px;
+}
+
+#homeview .model img {
+  height: 200px;
+  border-radius: 10px;
+}
+/* ---QUOTATIONVIEW---- */
+#quotationview {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: left;
+}
+
+#quotationview h1 {
+  padding-top: 70px;
+}
+
+#quotationview form {
+  margin-top: 100px;
+}
+/* --BUTTONQUOT--- */

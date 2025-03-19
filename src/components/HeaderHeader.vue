@@ -6,7 +6,7 @@ import ButtonQuotation from './ButtonQuot.vue'
 </script>
 
 <template>
-  <header>
+  <header id="header">
     <div class="container display">
       <Logo />
 
@@ -15,7 +15,7 @@ import ButtonQuotation from './ButtonQuot.vue'
 
         <a href="#contact">Contact</a>
 
-        <RouterLink :to="{ name: 'home' }">Accueil</RouterLink>
+        <div class="a"><RouterLink :to="{ name: 'home' }">Accueil</RouterLink></div>
       </nav>
     </div>
   </header>
@@ -31,7 +31,7 @@ header {
   background-color: var(--green-blue);
 }
 
-a {
+nav a {
   text-decoration: none;
   text-shadow: 0 0 5px black;
   color: white;
@@ -51,5 +51,6 @@ nav {
   display: flex;
   align-items: center;
   gap: 30px;
+  flex-wrap: nowrap;
 }
 </style>

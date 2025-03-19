@@ -83,22 +83,6 @@
   }
 }
 
-/* pas besoin---------- */
-
-/* .transform(@fromDeg, @toDeg) {
-  0% {
-    transform: rotate(@fromDeg);
-  }
-  30%,
-  70% {
-    transform: rotate(@toDeg);
-  }
-  90%,
-  10% {
-    transform: rotate(@fromDeg);
-  }
-} */
-
 @keyframes swatch-purple-motion {
   from {
     transform: rotate(0);
@@ -150,6 +134,20 @@
   }
   to {
     transform: rotate(65deg);
+  }
+}
+
+/* -----responsove----- */
+@media (max-width: 700px) {
+  .swatch {
+    margin: 50px;
+  }
+}
+
+@media (max-width: 500px) {
+  .swatch {
+    margin: 40px;
+    scale: 70%;
   }
 }
 </style>

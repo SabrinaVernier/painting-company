@@ -1,12 +1,16 @@
-<script setup></script>
+<script setup>
+import { RouterLink } from 'vue-router'
+</script>
 
 <template>
-  <div class="logo">
-    <div class="div-img">
-      <img src="../assets/Imgs/Image2-logo.png" alt="" />
+  <RouterLink :to="{ name: 'home' }">
+    <div class="logo">
+      <div class="div-img">
+        <img src="../assets/Imgs/Image2-logo.png" alt="" />
+      </div>
+      <p>GAU Peinture</p>
     </div>
-    <p>GAU Peinture</p>
-  </div>
+  </RouterLink>
 </template>
 
 <style scoped>
@@ -41,5 +45,17 @@
 
 img {
   height: 100%;
+}
+
+@media (max-width: 700px) {
+  .logo {
+    scale: 80%;
+  }
+}
+
+@media (max-width: 500px) {
+  .logo {
+    scale: 60%;
+  }
 }
 </style>

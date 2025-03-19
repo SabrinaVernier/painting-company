@@ -3,7 +3,7 @@ import ButtonQuotation from './ButtonQuot.vue'
 </script>
 
 <template>
-  <footer>
+  <footer id="footer">
     <div class="container">
       <section id="contact">
         <div>
@@ -19,6 +19,7 @@ import ButtonQuotation from './ButtonQuot.vue'
           <p>12 route de Colombiers</p>
           <p>34170 LESPIGNAN</p>
           <p class="small-p">siret 89177480400019</p>
+          <p class="small-p">Paiement : espèce, chèque, virement</p>
         </div>
       </section>
 

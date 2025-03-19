@@ -53,7 +53,7 @@ const displayBloc = (num) => {
 </script>
 
 <template>
-  <main>
+  <main id="homeview">
     <div class="container">
       <div>
         <h1>Gau Peinture</h1>
@@ -61,19 +61,40 @@ const displayBloc = (num) => {
       </div>
 
       <section class="presentation" id="home">
-        <div>
-          <p>
-            Bienvenue sur notre nouveau site internet ! Peinture en intérieur, peinture en
-            extérieur, ravalement de façade, travaux de revêtement mural ou de sols ? Ne cherchez
-            plus, c’est
+        <div class="div-img">
+          <img src="../assets/Imgs/A-capture-fabrice.png" alt="Fabrice" />
+
+          <p class="text-above-img">
+            "Le professionnalisme et le sérieux de Fabrice vous apportera une certaine sérénité dans
+            vos projets. <br />
+            Fabrice s'occupe de tout..."
+          </p>
+        </div>
+        <div class="text">
+          <h5>Bienvenue sur notre nouveau site internet !</h5>
+          <p class="justify">
+            Peinture en intérieur, peinture en extérieur, ravalement de façade, travaux de
+            revêtement mural ou de sols ? Ne cherchez plus, c’est
             <span>Gau Peinture</span>. Artisan peintre depuis plus de 15 ans, Fabrice & Fanny GAU
             sont à votre service pour vos futurs travaux de peinture en Occitanie et plus
             particulièrement dans l'Héraut(34) et l'Aude(11).
 
             <span>Gau Peinture</span> intervient chez les particuliers, les professionnels
             (commerces, bureaux, …) et auprès des collectivités (école, crèche, salle municipale…).
+          </p>
+          <p>
             N’hésitez pas à nous <a href="#contact">contacter</a> <br />
             À bientôt sur votre chantier !
+          </p>
+        </div>
+
+        <div class="div-img">
+          <img src="../assets/Imgs/A-capture-fanny.png" alt="Fanny" />
+
+          <p class="text-above-img">
+            "Avec Fanny, c'est la joie de vivre assurée ! Rigueur et persévérance sont ses maîtres
+            mots!!! <br />
+            Fanny apportera une touche féminine à vos projets."
           </p>
         </div>
       </section>
@@ -83,7 +104,11 @@ const displayBloc = (num) => {
       <section class="imgs">
         <h2>Travaux de peinture extérieure</h2>
         <div>
-          <img src="../assets/Imgs/FB_IMG_1742288937801.jpg" alt="maison chantier finie" />
+          <img
+            class="first-img"
+            src="../assets/Imgs/FB_IMG_1742288937801.jpg"
+            alt="maison chantier finie"
+          />
           <div>
             <div class="text">
               <h2>Ravalement de façade avec <span>GAU Peinture</span></h2>
@@ -130,7 +155,7 @@ const displayBloc = (num) => {
         </div>
 
         <div class="services-list">
-          <h2 class="strong">Prestations proposés par l'Entreprise :</h2>
+          <h2 class="strong">Prestations proposées par l'Entreprise</h2>
 
           <div class="div-list">
             <p v-for="service in servicesArray" :key="service">
@@ -160,7 +185,7 @@ const displayBloc = (num) => {
           </div>
         </div>
 
-        <div>
+        <div class="div-steps">
           <div class="step" v-for="step in stepsProject" :key="step">
             <h4 :style="{ color: step.color }">{{ step.title }}</h4>
             <div>{{ step.icon }}</div>
@@ -342,9 +367,30 @@ section {
   background-color: #fff;
 }
 /* ---presentation--- */
+.presentation {
+  display: flex;
+  align-items: center;
+}
 
+.presentation .text {
+  border: 5px groove var(--green-blue);
+  /* box-shadow: 0 0 5px var(--grey); */
+  background-color: #fff;
+  border-radius: 20px;
+  padding: 20px 30px;
+  margin: 0 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
 .presentation p {
   line-height: 20px;
+  text-align: center;
+}
+
+.presentation .justify {
+  text-align: justify;
 }
 
 span {
@@ -354,6 +400,26 @@ span {
 
 .presentation a {
   color: var(--blue);
+}
+
+.div-img {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.div-img .text-above-img {
+  color: var(--blue);
+}
+
+.presentation img {
+  height: 200px;
+  width: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 0 5px var(--dark-grey);
+  border: 3px double white;
+  /* transform: scale(-1); */
+  filter: grayscale(100%);
 }
 
 /* ---imgs--- */
@@ -405,8 +471,8 @@ span {
 
 .description .text {
   /* border: 1px dashed black; */
-  width: 260px;
-  height: 420px;
+  max-width: 260px;
+  max-height: 420px;
   position: absolute;
   top: 220px;
   left: 280px;
@@ -495,6 +561,7 @@ span {
   font-size: 16px;
   line-height: 20px;
   font-style: italic;
+  color: var(--dark-grey);
 }
 .model > div > ul > li {
   /* border: 1px solid #000; */
@@ -502,6 +569,7 @@ span {
 }
 .model img {
   height: 300px;
+  border-radius: 10px;
 }
 
 .model li > div {

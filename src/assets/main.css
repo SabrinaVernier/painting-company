@@ -1,5 +1,12 @@
 @import './base.css';
 
+/* ---RESPONSIVE--- */
+@import './breakpoint-1000.css' (max-width: 1000px);
+@import './breakpoint-700.css' (max-width: 700px);
+@import './breakpoint-500.css' (max-width: 500px);
+
+/* ----------------- */
+
 :root {
   --orange: #eb8104;
   --blue: #268fb1;
@@ -21,8 +28,13 @@
 
   /* ---loader--- */
   --main-color: white;
-  /* --point-color: #555; */
   --size: 5px;
+
+  /* ---responsive--- */
+  --container-width: 1000px;
+  --container-width-bp-1000: 800px;
+  --container-width-bp-700: 500px;
+  --container-width-bp-500: 350px;
 }
 
 * {
@@ -40,13 +52,13 @@ main {
 }
 
 .container {
-  width: 1000px;
+  max-width: var(--container-width);
   margin: 0 auto;
 }
 
 h1 {
   font-family: 'Rock Salt', serif;
-  font-size: 34px;
+  font-size: 48px;
   line-height: 22px;
   padding-top: 100px;
   padding-bottom: 20px;
@@ -66,6 +78,7 @@ h2 {
 }
 
 h3 {
+  font-size: 16px;
   text-align: center;
   color: var(--grey);
   padding-bottom: 50px;
@@ -81,6 +94,7 @@ h5 {
   font-size: 14px;
   font-family: 'Rock Salt', serif;
   padding: 20px;
+  line-height: 22px;
 }
 img {
   display: block;
@@ -94,4 +108,38 @@ a:hover,
 .a:hover {
   scale: 120%;
   text-decoration: none;
+}
+
+/* ---Responsive--- */
+@media (max-width: 1000px) {
+  .container {
+    max-width: var(--container-width-bp-1000);
+  }
+}
+
+@media (max-width: 700px) {
+  .container {
+    max-width: var(--container-width-bp-700);
+  }
+  h1 {
+    font-size: 40px;
+  }
+  h2 {
+    font-size: 22px;
+    margin-bottom: 10px;
+  }
+}
+
+@media (max-width: 500px) {
+  .container {
+    max-width: var(--container-width-bp-500);
+    margin: unset;
+  }
+  h1 {
+    font-size: 30px;
+  }
+  h4 {
+    font-size: 16px;
+    line-height: 20px;
+  }
 }

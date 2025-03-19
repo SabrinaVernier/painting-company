@@ -1,0 +1,81 @@
+/* ---max-width: 500px--- */
+
+body {
+  background-color: lightpink;
+}
+
+/* ---HEADER---------- */
+#header .display {
+  justify-content: flex-start;
+}
+
+#header nav {
+  flex: 2;
+  gap: 15px;
+  align-items: center;
+  justify-content: center;
+}
+#header nav a {
+  font-size: 12px;
+}
+/* ---FOOTER---------- */
+/* ---HOMEVIEW--------- */
+
+/* section-present-- */
+#homeview .presentation {
+  padding: 20px 10px;
+}
+#homeview .presentation p {
+  font-size: 12px;
+}
+#homeview .presentation .text {
+  padding: 10px;
+}
+/* section-div-sect-- */
+/* description */
+
+/* sevices-list */
+#homeview .div-list {
+  font-size: 10px;
+  align-items: flex-start;
+}
+#homeview .services-list svg {
+  margin-right: 5px;
+}
+
+/* section-div-col-- */
+#homeview .div-color .text {
+  margin: 150px 0 0 0;
+  padding: 20px 0;
+  width: 100%;
+}
+
+#homeview .div-steps {
+  gap: 10px;
+}
+
+#homeview .div-steps .step {
+  width: 100%;
+  height: fit-content;
+  margin: 10px 0;
+}
+/* section-model-- */
+
+/* ---QUOTATIONVIEW---- */
+#quotationview {
+  background-image: none;
+  background-color: var(--blue);
+}
+#quotationview h1 {
+  line-height: 28px;
+  padding: 30px;
+}
+
+#quotationview form {
+  padding: 20px;
+  margin: 30px 10px;
+}
+#quotationview form input,
+#quotationview form textarea {
+  max-width: 300px;
+}

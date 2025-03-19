@@ -2,8 +2,7 @@
 import { RouterLink } from 'vue-router'
 import { ref } from 'vue'
 
-const firstname = ref('')
-const lastname = ref('')
+const name = ref('')
 const email = ref('')
 const phone = ref('')
 const message = ref('')
@@ -14,22 +13,20 @@ let infoMessage = ref('')
 const handleSubmit = () => {
   isSubmitting.value = true
 
-  if (!firstname.value || !lastname.value || !email.value || !phone.value || !message.value) {
+  if (!name.value || !email.value || !phone.value || !message.value) {
     isSubmitting.value = false
     infoMessage.value = 'Veuillez remplir tous les champs'
     return
   } else {
     quotationInfos.value.push({
-      firstname: firstname.value,
-      lastname: lastname.value,
+      name: name.value,
       email: email.value,
       phone: phone.value,
       message: message.value,
     })
 
     isSubmitting.value = false
-    firstname.value = ''
-    lastname.value = ''
+    name.value = ''
     email.value = ''
     phone.value = ''
     message.value = ''
@@ -40,30 +37,13 @@ const handleSubmit = () => {
 </script>
 
 <template>
-  <main>
+  <main id="quotationview">
     <div class="container">
       <h1>Demande de devis</h1>
 
       <form @submit.prevent="handleSubmit">
-        <label for="firstname">Nom</label>
-        <input
-          type="text"
-          id="firstname"
-          name="firstname"
-          placeholder="Votre nom"
-          v-model="firstname"
-          required
-        />
-
-        <label for="lastname">Prénom</label>
-        <input
-          type="text"
-          id="lastname"
-          name="lastname"
-          placeholder="Votre prénom"
-          v-model="lastname"
-          required
-        />
+        <label for="name">Nom</label>
+        <input type="text" id="name" name="name" placeholder="Votre nom" v-model="name" required />
 
         <label for="email">Email</label>
         <input
@@ -96,24 +76,31 @@ const handleSubmit = () => {
           required
         ></textarea>
 
-        <button v-if="!infoMessage">Envoyer</button>
-        <p v-else>{{ infoMessage }}</p>
+        <button v-if="!infoMessage && !isSubmitting">Envoyer</button>
+        <button v-else-if="!infoMessage && isSubmitting">Envoi de la demande...</button>
+        <p v-else class="info-message">{{ infoMessage }}</p>
+
+        <div class="back-home">
+          <RouterLink :to="{ name: 'home' }">Retour à la page d'accueil</RouterLink>
+        </div>
       </form>
-      <div class="back-home">
-        <RouterLink :to="{ name: 'home' }">Retour à la page d'accueil</RouterLink>
-      </div>
     </div>
   </main>
 </template>
 
 <style scoped>
 main {
-  /* background-color: var(--light-grey); */
   background-image: url('../assets/Imgs/A-fanny-enduit.jpg');
-  opacity: 0.8;
+  /* background-repeat: repeat no-repeat; */
+  background-size: 50%;
+  opacity: 0.9;
+  height: fit-content;
+  padding-bottom: 30px;
 }
+
 h1 {
   padding: 50px;
+  text-shadow: 0 0 10px white;
 }
 form {
   box-shadow: 0 2px 5px var(--dark-grey);
@@ -122,7 +109,7 @@ form {
   width: fit-content;
   height: fit-content;
   margin: 0 auto;
-  padding: 20px;
+  padding: 30px 40px;
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -133,23 +120,36 @@ form {
 form input,
 form textarea {
   width: 400px;
-  height: 30px;
   padding: 5px;
+  border-radius: 10px;
+  border: 1px solid #000;
+}
+form input {
+  height: 40px;
 }
 
 button {
   color: white;
+  font-size: 16px;
   background-color: var(--blue);
   border: none;
   border-radius: 10px;
-  padding: 8px 20px;
+  padding: 8px 30px;
   margin-top: 20px;
   align-self: end;
+}
+button:hover {
+  scale: 120%;
+}
+
+.info-message {
+  font-size: 16px;
+  color: var(--orange);
 }
 
 /* ------ */
 .back-home {
-  text-align: end;
+  align-self: center;
   margin-top: 50px;
 }
 a {
