@@ -1,3 +1,4 @@
+<!-- eslint-disable no-undef -->
 <script setup>
 import { RouterLink } from 'vue-router'
 import { ref } from 'vue'
@@ -6,7 +7,7 @@ const name = ref('')
 const email = ref('')
 const phone = ref('')
 const message = ref('')
-const quotationInfos = ref([])
+const quotationInfos = ref($cookies.get('messagesList') || [])
 const isSubmitting = ref(false)
 let infoMessage = ref('')
 
@@ -24,6 +25,12 @@ const handleSubmit = () => {
       phone: phone.value,
       message: message.value,
     })
+
+    // suppression du cookie (sa valeur est enregistrée dans quotationInfos.value)
+    $cookies.remove('messagesList')
+
+    // création d'un nouveau cookie avec la nouvelle valeur
+    $cookies.set('messagesList', quotationInfos.value)
 
     isSubmitting.value = false
     name.value = ''
@@ -43,7 +50,15 @@ const handleSubmit = () => {
 
       <form @submit.prevent="handleSubmit">
         <label for="name">Nom</label>
-        <input type="text" id="name" name="name" placeholder="Votre nom" v-model="name" required />
+        <input
+          type="text"
+          id="name"
+          name="name"
+          placeholder="Votre nom"
+          v-model="name"
+          @input="infoMessage = ''"
+          required
+        />
 
         <label for="email">Email</label>
         <input
@@ -52,6 +67,7 @@ const handleSubmit = () => {
           name="email"
           placeholder="Votre email"
           v-model="email"
+          @input="infoMessage = ''"
           required
         />
 
@@ -62,6 +78,7 @@ const handleSubmit = () => {
           name="phone"
           placeholder="Votre téléphone"
           v-model="phone"
+          @input="infoMessage = ''"
           required
         />
 
@@ -73,12 +90,19 @@ const handleSubmit = () => {
           rows="10"
           placeholder="Bonjour, je souhaiterais ..."
           v-model="message"
+          @input="infoMessage = ''"
           required
         ></textarea>
 
-        <button v-if="!infoMessage && !isSubmitting">Envoyer</button>
-        <button v-else-if="!infoMessage && isSubmitting">Envoi de la demande...</button>
-        <p v-else class="info-message">{{ infoMessage }}</p>
+        <div class="buttons">
+          <button type="button" class="login">
+            <RouterLink :to="{ name: 'login' }">LOGIN Admin</RouterLink>
+          </button>
+
+          <button v-if="!infoMessage && !isSubmitting">Envoyer</button>
+          <button v-else-if="!infoMessage && isSubmitting">Envoi de la demande...</button>
+          <p v-else class="info-message">{{ infoMessage }}</p>
+        </div>
 
         <div class="back-home">
           <RouterLink :to="{ name: 'home' }">Retour à la page d'accueil</RouterLink>
@@ -126,6 +150,18 @@ form textarea {
 }
 form input {
   height: 40px;
+}
+
+.buttons {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+form a {
+  color: white;
+  text-decoration: none;
+  font-size: 14px;
 }
 
 button {

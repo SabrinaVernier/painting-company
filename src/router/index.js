@@ -15,6 +15,11 @@ const router = createRouter({
       name: 'quotation',
       component: QuotationView,
     },
+    {
+      path: '/login',
+      name: 'login',
+      component: () => import('@/views/LoginView.vue'),
+    },
   ],
   scrollBehavior() {
     return { top: 0, left: 0 }
