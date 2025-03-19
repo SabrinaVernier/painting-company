@@ -9,9 +9,9 @@ import router from './router'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
-import { faAngleDoubleDown, faPaintRoller } from '@fortawesome/free-solid-svg-icons'
+import { faAngleDoubleDown, faEnvelope, faPaintRoller } from '@fortawesome/free-solid-svg-icons'
 
-library.add(faPaintRoller, faAngleDoubleDown)
+library.add(faPaintRoller, faAngleDoubleDown, faEnvelope)
 
 const app = createApp(App)
 

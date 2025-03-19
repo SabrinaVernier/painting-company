@@ -71,27 +71,33 @@ const handleSubmit = () => {
       <p class="info-message">{{ infoMessage }}</p>
     </div>
 
-    <div class="container" v-if="isAdmin">
+    <div class="container div-messages" v-if="isAdmin">
       <h2>Vos Messages</h2>
 
-      <div class="messages">
-        <section>NOM</section>
-        <section>EMAIL</section>
-        <section>TELEPHONE</section>
-        <section>MESSAGE</section>
-      </div>
+      <div>
+        <div class="messages titles">
+          <section>NOM</section>
+          <section>EMAIL</section>
+          <section>TELEPHONE</section>
+          <section>MESSAGE</section>
+        </div>
 
-      <div class="messages" v-for="message in messagesList" :key="message">
-        <section>{{ message.name }}</section>
-        <section>{{ message.email }}</section>
-        <section>{{ message.phone }}</section>
-        <section>{{ message.message }}</section>
+        <div class="messages list" v-for="message in messagesList" :key="message">
+          <section>{{ message.name }}</section>
+          <section>{{ message.email }}</section>
+          <section>{{ message.phone }}</section>
+          <section>{{ message.message }}</section>
+        </div>
       </div>
     </div>
   </main>
 </template>
 
 <style scoped>
+main {
+  padding: 40px 0;
+  background: linear-gradient();
+}
 .info-message {
   color: red;
 }
@@ -103,15 +109,40 @@ const handleSubmit = () => {
 /* -------- */
 .messages {
   width: 100%;
-  margin: 1rem 0;
+  /* margin: 1rem 0; */
   padding: 1rem;
   border: 1px solid var(--blue);
-  border-radius: 5px;
+  /* border-radius: 5px; */
   background-color: #f9f9f9;
   display: flex;
 }
 
-.messages > section {
+.messages > section:not(:last-child) {
   flex: 1;
+}
+.messages > section:last-child {
+  flex: 2;
+}
+
+.div-messages > div {
+  border-radius: 5px;
+}
+
+.div-messages > div > div:last-child {
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+.titles {
+  font-weight: bold;
+  border-width: 3px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  color: #fff;
+  background-color: var(--blue);
+}
+.list {
+  border-top: unset;
+  height: fit-content;
 }
 </style>

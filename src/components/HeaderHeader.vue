@@ -1,8 +1,16 @@
+<!-- eslint-disable no-undef -->
 <script setup>
 import { RouterLink } from 'vue-router'
+import { ref } from 'vue'
 
 import Logo from './LogoCompany.vue'
 import ButtonQuotation from './ButtonQuot.vue'
+
+const messagesList = ref($cookies.get('messagesList') || [])
+// console.log(messagesList.value)
+
+const numOfMessages = messagesList.value.length
+console.log(numOfMessages)
 </script>
 
 <template>
@@ -13,10 +21,17 @@ import ButtonQuotation from './ButtonQuot.vue'
       <nav>
         <div class="a"><ButtonQuotation /></div>
 
-        <a href="#contact">Contact</a>
+        <a class="a" href="#contact">Contact</a>
 
         <div class="a"><RouterLink :to="{ name: 'home' }">Accueil</RouterLink></div>
       </nav>
+
+      <div class="absolute">
+        <RouterLink :to="{ name: 'login' }"
+          ><font-awesome-icon :icon="['fas', 'envelope']"
+        /></RouterLink>
+        <div class="num-of-messages">{{ numOfMessages }}</div>
+      </div>
     </div>
   </header>
 </template>
@@ -43,14 +58,49 @@ nav a {
 
 .display {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
+  align-items: center;
 }
 
 nav {
-  width: 50%;
+  width: 70%;
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 30px;
   flex-wrap: nowrap;
+}
+
+header svg {
+  color: var(--blue);
+  font-size: 25px;
+}
+
+.absolute {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  border: 1px double rgb(239, 231, 231);
+  background-color: white;
+  position: absolute;
+  top: 80px;
+  right: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.num-of-messages {
+  position: absolute;
+  top: 8px;
+  right: 5px;
+  background-color: red;
+  color: white;
+  height: 15px;
+  width: 15px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 12px;
 }
 </style>
