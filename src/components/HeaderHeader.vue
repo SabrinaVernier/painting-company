@@ -2,8 +2,17 @@
 <script setup>
 import { RouterLink } from 'vue-router'
 
+import { inject, computed } from 'vue'
+
 import Logo from './LogoCompany.vue'
 import ButtonQuotation from './ButtonQuot.vue'
+
+const GlobalStore = inject('GlobalStore')
+console.log('GlobalStore>>>', GlobalStore.numberMessages.value)
+
+const updateNumberOfMessage = computed(() => {
+  return GlobalStore.numberMessages.value
+})
 </script>
 
 <template>
@@ -18,6 +27,13 @@ import ButtonQuotation from './ButtonQuot.vue'
 
         <div class="a"><RouterLink :to="{ name: 'home' }">Accueil</RouterLink></div>
       </nav>
+
+      <div class="absolute">
+        <RouterLink :to="{ name: 'login' }"
+          ><font-awesome-icon :icon="['fas', 'envelope']"
+        /></RouterLink>
+        <div class="num-of-messages">{{ updateNumberOfMessage }}</div>
+      </div>
     </div>
   </header>
 </template>
@@ -55,5 +71,40 @@ nav {
   justify-content: center;
   gap: 30px;
   flex-wrap: nowrap;
+}
+
+/* ---------------- */
+.absolute {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  border: 1px double rgb(239, 231, 231);
+  background-color: white;
+  position: fixed;
+  top: 80px;
+  right: 330px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.absolute svg {
+  color: var(--blue);
+  font-size: 25px;
+}
+
+.num-of-messages {
+  position: absolute;
+  top: 8px;
+  right: 5px;
+  background-color: red;
+  color: white;
+  height: 15px;
+  width: 15px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 12px;
 }
 </style>

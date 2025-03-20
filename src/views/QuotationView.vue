@@ -1,9 +1,11 @@
 <!-- eslint-disable no-undef -->
 <script setup>
 import { RouterLink } from 'vue-router'
-import { ref } from 'vue'
+import { ref, inject } from 'vue'
 
 $cookies.remove('adminInfo')
+
+const GlobalStore = inject('GlobalStore')
 
 const name = ref('')
 const email = ref('')
@@ -42,8 +44,9 @@ const handleSubmit = () => {
     email.value = ''
     phone.value = ''
     message.value = ''
-    infoMessage.value = 'Votre demande de devis a bien été envoyée'
-    console.log(quotationInfos.value)
+    infoMessage.value = 'Votre demande de devis a bien été envoyé'
+    console.log(quotationInfos.value.length)
+    GlobalStore.updateNumber(quotationInfos.value.length)
   }
 }
 </script>

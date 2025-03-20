@@ -1,8 +1,9 @@
+/* eslint-disable no-undef */
 import './assets/main.css'
 
 import VueCookies from 'vue-cookies'
 
-import { createApp } from 'vue'
+import { createApp, ref } from 'vue'
 import App from './App.vue'
 import router from './router'
 
@@ -16,6 +17,18 @@ library.add(faPaintRoller, faAngleDoubleDown, faEnvelope)
 const app = createApp(App)
 
 app.use(router)
+
+// ---provider----
+
+const messagesList = ref($cookies.get('messagesList') || [])
+
+const numberMessages = ref(messagesList.value.length)
+
+const updateNumber = (num) => {
+  numberMessages.value = num
+}
+
+app.provide('GlobalStore', { numberMessages, updateNumber })
 
 app.use(VueCookies)
 

@@ -65,3 +65,34 @@ export const stepsProject = [
       'Notre travail de peinture est achevé mais notre intervention n’est pas terminée. Nous attachons un soin particulier tout au long de notre chantier à nettoyer chaque jour l’espace concerné et cette exigence s’applique naturellement en fin de chantier pour vous laisser vos pièces propres et embellies.',
   },
 ]
+
+export let messagesExample = [
+  {
+    name: 'Sabrina',
+    email: 'sab@mail.com',
+    phone: '0607303198',
+    message:
+      "Bonjour, J'ai vu que vous faisiez le parquet. Quel modèle proposez-vous et quels sont vos tarifs ? Merci d'avance. Cordialement ",
+  },
+  {
+    name: 'Robert',
+    email: 'robert@mail.com',
+    phone: '0785624155',
+    message:
+      "Bonjour, mon projet est de repeindre tout mon garage. J'aimerai être conseillé. J'aimerai également peindre le sol. J'ai vu que la résine était très résistante. J'attends votre retour. Merci",
+  },
+  {
+    name: 'Doudou',
+    email: 'doudou@mail.com',
+    phone: '0782265087',
+    message:
+      "Bonjour, j'aimerais repeindre les volets de ma maison, ainsi que les portes . J'ai 6 volets doubles et un grand de porte. Merci",
+  },
+  {
+    name: 'Emily',
+    email: 'nana@mail.com',
+    phone: '0683776545',
+    message:
+      "Bonjour, je souhaiterais un devis pour une rénovation de façade pour une maison de 150m2. Quels sont les matériaux que vous proposez?  Merci d'avance",
+  },
+]

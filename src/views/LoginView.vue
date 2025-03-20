@@ -1,12 +1,15 @@
 <!-- eslint-disable no-undef -->
 <script setup>
-import { ref } from 'vue'
+import { messagesExample } from '@/assets/Utils/Array'
+import { ref, inject } from 'vue'
 
 const messagesList = ref($cookies.get('messagesList') || [])
 // console.log(messagesList.value)
 
-const numOfMessages = ref(messagesList.value.length)
-// console.log(numOfMessages)
+const GlobalStore = inject('GlobalStore')
+
+let numOfMessages = ref(messagesList.value.length + messagesExample.length)
+console.log(numOfMessages.value)
 
 const isAdmin = ref($cookies.get('adminInfo') || false)
 
@@ -14,6 +17,9 @@ const identifier = ref('fab&fan')
 const password = ref('21JUIN2025')
 const isSubmitting = ref(false)
 let infoMessage = ref('')
+let action = ref('')
+const responseReset = ref(false)
+const isInput = ref(false)
 
 const handleSubmit = () => {
   isSubmitting.value = true
@@ -37,18 +43,45 @@ const handleSubmit = () => {
     password.value = ''
   }
 }
+
+const isReset = () => {
+  isInput.value = true
+  action.value = 'effacé ?'
+}
+
+// effaçer un message----------------------
+const resetOneMsg = (message) => {
+  for (let i = 0; i < messagesList.value.length; i++) {
+    // console.log('messagesList[i]', messagesList.value[i])
+    if (message.email === messagesList.value[i].email) {
+      messagesList.value.splice(i, 1)
+      $cookies.remove('messagesList')
+      $cookies.set('messagesList', messagesList.value)
+    }
+  }
+  infoMessage.value = 'Votre message a bien été effacé'
+  numOfMessages.value = messagesList.value.length
+
+  GlobalStore.updateNumber(numOfMessages.value)
+  responseReset.value = false
+  isInput.value = false
+  action.value = ''
+}
+
+// effaçer tous les messages---------------
+const resetMsg = () => {
+  messagesExample.slice(0, messagesExample.length)
+  messagesList.value = []
+  $cookies.remove('messagesList')
+  numOfMessages.value = 0
+  GlobalStore.updateNumber(numOfMessages.value)
+  infoMessage.value = 'Vos messages ont bien été effacé'
+}
 </script>
 
 <template>
   <main>
     <div class="container div-login">
-      <div class="absolute">
-        <RouterLink :to="{ name: 'login' }"
-          ><font-awesome-icon :icon="['fas', 'envelope']"
-        /></RouterLink>
-        <div class="num-of-messages">{{ numOfMessages }}</div>
-      </div>
-
       <h2 class="hello" v-if="isAdmin">Bonjour Fabrice & Fanny !</h2>
 
       <div v-else>
@@ -96,16 +129,47 @@ const handleSubmit = () => {
           <section>TELEPHONE</section>
           <section class="message-reset">
             <p>MESSAGE</p>
-            <p @click="messagesList = [] && $cookies.remove('messagesList')">effaçer tout</p>
+            <p @click="resetMsg">effaçer tout</p>
           </section>
         </div>
 
         <div class="messages list" v-for="message in messagesList" :key="message">
           <!-- <section>{{ message.id }}</section> -->
-          <section>{{ message.name }}</section>
-          <section>{{ message.email }}</section>
-          <section>{{ message.phone }}</section>
-          <section>" {{ message.message }} "</section>
+          <section @click="isInput = false">{{ message.name }}</section>
+          <section @click="isInput = false">{{ message.email }}</section>
+          <section @click="isInput = false">{{ message.phone }}</section>
+          <section class="clear-input">
+            <p>" {{ message.message }} "</p>
+
+            <div>
+              <input v-if="!isInput" type="checkbox" @input="isReset" />
+              <div v-else>
+                <div>{{ action }}</div>
+                <label for="oui"
+                  >Oui
+                  <input
+                    type="radio"
+                    id="oui"
+                    name="reset"
+                    value="true"
+                    v-model="responseReset"
+                    @input="resetOneMsg(message)"
+                /></label>
+
+                <label for="non"
+                  >Non
+                  <input type="radio" id="non" name="reset" value="false" v-model="responseReset"
+                /></label>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <div class="messages list" v-for="message in messagesExample" :key="message">
+          <section><span>(exemple) </span>{{ message.name }}</section>
+          <section><span>(exemple) </span>{{ message.email }}</section>
+          <section><span>(exemple) </span>{{ message.phone }}</section>
+          <section><span>(exemple) </span>" {{ message.message }} "</section>
         </div>
       </div>
     </div>
@@ -182,43 +246,14 @@ main {
   color: var(--dark-grey);
 }
 
-.message-reset {
+.list span {
+  color: var(--orange);
+}
+
+.message-reset,
+.clear-input {
   display: flex;
   justify-content: space-between;
   cursor: pointer;
-}
-/* ---------------- */
-.absolute {
-  height: 50px;
-  width: 50px;
-  border-radius: 50%;
-  border: 1px double rgb(239, 231, 231);
-  background-color: white;
-  position: fixed;
-  top: 150px;
-  right: 300px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.absolute svg {
-  color: var(--blue);
-  font-size: 25px;
-}
-
-.num-of-messages {
-  position: absolute;
-  top: 8px;
-  right: 5px;
-  background-color: red;
-  color: white;
-  height: 15px;
-  width: 15px;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 12px;
 }
 </style>
